@@ -1,0 +1,42 @@
+/* ------------------------------------------------------------------ *
+ * Overrides layered on top of the original page CSS.
+ * Goal: keep the original layout/typography, but (a) make everything
+ * visible without the GSAP/Webflow JS, and (b) turn every image/video
+ * into a neutral gray placeholder box.
+ * ------------------------------------------------------------------ */
+
+/* Reveal anything the animation JS would have faded in. Scoped to the
+   imported page so it never touches the kit nav/footer. Kept narrow so
+   it doesn't flatten intentional layout transforms (e.g. the hero ring). */
+.original-page [data-w-id],
+.original-page .line,
+.original-page .word,
+.original-page .char,
+.original-page [class*="split"],
+.original-page [class*="reveal"] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+}
+
+/* Gray placeholder boxes replace all <img>/<video>. They inherit the
+   original element classes, so the original CSS still controls their
+   size/position within each grid. */
+.original-page .ph-box {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background: #e6e6e6;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* A few slots sized their image only via the <img> intrinsic ratio.
+   Give those a sensible min-height so the box is visible. */
+.original-page .hero__carousel__img { min-height: 140px; }
+.original-page .ph-box:empty { min-height: 80px; }
+
+/* The original had its own fixed top header (removed — the kit SiteNav
+   replaces it). Add headroom so the hero clears the kit's fixed nav. */
+.original-page { padding-top: 0; }

@@ -1,0 +1,128 @@
+/* ------------------------------------------------------------------ *
+ * TUNING KNOBS — edit these for instant hot-reload (no map_seo rebuild,
+ * no dev-server restart). Structure/content lives in map_seo.py; the
+ * frequently-tweaked hero styling lives here.
+ * All rules are scoped under .original-page so they override the
+ * injected original CSS (higher specificity) without !important.
+ * ------------------------------------------------------------------ */
+
+/* Hero shell */
+.original-page .hero {
+  position: relative;
+  height: auto;
+  min-height: 80svh;
+  overflow: hidden;
+}
+.original-page .hero__left {
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Hero heading — width + fluid size + subtle white gradient */
+.original-page .hero__title {
+  width: 60%;
+  font-size: clamp(44px, 6.4vw, 84px);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  font-weight: 500;
+  /* bottom-to-top: subtle dark silver at the base fading to white — premium metallic */
+  background-image: linear-gradient(to top, #8f8f96 0%, #d7d7db 34%, #ffffff 72%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hero logo (Fashion Studio wordmark) — drop the file at public/fashion-studio-logo.svg */
+.original-page .hero__logo {
+  display: block;
+  width: clamp(150px, 17vw, 250px);
+  height: auto;
+  margin-bottom: 1.75rem;
+}
+
+/* Hero intro paragraph */
+.original-page .hero__intro {
+  width: 60%;
+  margin-top: 1.75rem;
+  color: #fff;
+  opacity: 0.82;
+  font-size: clamp(16px, 1.2vw, 19px);
+  line-height: 1.7;
+  letter-spacing: -0.005em;
+}
+
+/* Liquid-glass CTA */
+.original-page .hero-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 2.25rem;
+  padding: 1rem 1.9rem;
+  border-radius: 999px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(78, 78, 82, 0.5), rgba(16, 16, 18, 0.62));
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -10px 20px rgba(0, 0, 0, 0.35), 0 12px 34px rgba(0, 0, 0, 0.45);
+  -webkit-backdrop-filter: blur(12px) saturate(170%);
+  backdrop-filter: blur(12px) saturate(170%);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, background 0.3s ease;
+}
+.original-page .hero-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(120% 80% at 30% -20%, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 60%);
+  pointer-events: none;
+}
+.original-page .hero-cta:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(180deg, rgba(98, 98, 102, 0.55), rgba(26, 26, 28, 0.68));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -10px 20px rgba(0, 0, 0, 0.35), 0 18px 46px rgba(0, 0, 0, 0.55);
+}
+.original-page .hero-cta__arrow {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.original-page .hero-cta:hover .hero-cta__arrow {
+  transform: translateX(4px);
+}
+
+/* ---- "What You Can Shoot" — authored sticky-stacking panels ---- */
+.original-page .uses__intro { max-width: none; padding: 7rem clamp(1.5rem, 3.5vw, 4rem) 3.5rem; }
+.original-page .uses__eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fonts-50); margin-bottom: 1.25rem; }
+.original-page .uses__title { margin: 0; max-width: 20ch; font-size: clamp(30px, 4.5vw, 60px); font-weight: 500; line-height: 1.05; letter-spacing: -0.02em; color: var(--fonts-100); }
+.original-page .uses__lead { margin-top: 1.5rem; max-width: 56ch; font-size: clamp(16px, 1.2vw, 19px); line-height: 1.6; color: var(--fonts-64); }
+
+.original-page .uses__panel { position: sticky; top: 0; min-height: 100vh; display: flex; color: #fff; overflow: hidden; }
+.original-page .uses__inner { width: 100%; max-width: none; padding: 3rem clamp(1.5rem, 3.5vw, 4rem) 3.5rem; display: flex; flex-direction: column; }
+/* (EC) code — centered at top */
+.original-page .uses__code { text-align: center; font-size: 12px; letter-spacing: 0.16em; opacity: 0.6; }
+/* title left, big number right */
+.original-page .uses__head { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; margin-top: 1.25rem; }
+.original-page .uses__h3 { margin: 0; max-width: 16ch; font-size: clamp(30px, 4vw, 58px); font-weight: 500; line-height: 1.02; letter-spacing: -0.02em; }
+.original-page .uses__num { flex: none; font-size: clamp(56px, 7vw, 128px); font-weight: 500; line-height: 0.85; letter-spacing: -0.02em; }
+/* info row: horizontal line on top, vertical divider between the two chips */
+.original-page .uses__info { display: grid; grid-template-columns: 1fr 1fr; margin-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.28); }
+.original-page .uses__info-col { padding: 1.75rem 0; }
+.original-page .uses__info-col:first-child { padding-right: 2.5rem; border-right: 1px solid rgba(255,255,255,0.28); }
+.original-page .uses__info-col:last-child { padding-left: 2.5rem; }
+.original-page .uses__chip { display: inline-flex; align-items: center; gap: 0.55rem; font-size: 13px; letter-spacing: 0.01em; opacity: 0.92; }
+.original-page .uses__chip i { width: 7px; height: 7px; background: currentColor; display: inline-block; }
+.original-page .uses__desc { margin-top: 1.25rem; max-width: 42ch; font-size: clamp(15px, 1.1vw, 18px); line-height: 1.55; opacity: 0.9; }
+/* centered button */
+.original-page .uses__btn { align-self: center; margin-top: 2.25rem; background: #fff; color: #141414; padding: 0.75rem 1.6rem; border-radius: 999px; font-size: 14px; font-weight: 500; text-decoration: none; }
+/* image centered at the bottom */
+.original-page .uses__media { margin: 2.75rem auto 0; width: min(58%, 680px); aspect-ratio: 16 / 10; border-radius: 1rem; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.3); }
+.original-page .uses__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 820px) {
+  .original-page .uses__head { flex-direction: column-reverse; align-items: flex-start; gap: 0.5rem; }
+  .original-page .uses__media { width: 100%; }
+}

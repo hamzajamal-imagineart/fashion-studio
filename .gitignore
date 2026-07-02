@@ -1,0 +1,20 @@
+# dependencies / build
+node_modules/
+.next/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# os / editor
+.DS_Store
+
+# tooling / local
+.claude/
+.backups/
+
+# external source capture (input only — the sanitized output lives in imagine-studio/app/original-body.html)
+AI Product Generation*
+
+# local build/regeneration script (depends on the external source; app runs without it)
+imagine-studio/map_seo.py
