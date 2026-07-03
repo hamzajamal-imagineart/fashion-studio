@@ -13,8 +13,6 @@ next-env.d.ts
 .claude/
 .backups/
 
-# external source capture (input only — the sanitized output lives in imagine-studio/app/original-body.html)
-AI Product Generation*
-
-# local build/regeneration script (depends on the external source; app runs without it)
-imagine-studio/map_seo.py
+# local build/regeneration script (its external source was removed; the app
+# runs from the committed app/original-body.html)
+map_seo.py
