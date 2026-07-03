@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import ScrollReveal from "@/components/ScrollReveal";
 import "./original.css";
 import "./original-overrides.css";
 import "./tuning.css";
@@ -26,6 +27,7 @@ export default function Home() {
         className="original-page body dark"
         dangerouslySetInnerHTML={{ __html: originalBody }}
       />
+      <ScrollReveal />
       <SiteFooter />
     </>
   );
