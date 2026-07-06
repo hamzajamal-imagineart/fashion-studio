@@ -26,27 +26,17 @@
   max-width: 100%;
 }
 
-/* Hero heading — width + fluid size + subtle white gradient (flipped: dark top -> white bottom) */
+/* Hero heading — width + fluid size + static white gradient (dark top -> white bottom) */
 .original-page .hero__title {
   width: 60%;
   font-size: clamp(44px, 6.4vw, 84px);
   line-height: 1.04;
   letter-spacing: -0.025em;
   font-weight: 500;
-  /* moving metallic sheen — a bright band sweeps across for a premium feel */
-  background-image: linear-gradient(100deg, #8f8f96 0%, #c9c9ce 22%, #ffffff 42%, #ffffff 50%, #c9c9ce 62%, #8f8f96 82%, #d0d0d5 100%);
-  background-size: 240% auto;
+  background-image: linear-gradient(to bottom, #8f8f96 0%, #d7d7db 34%, #ffffff 72%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: heroSheen 8s linear infinite;
-}
-@keyframes heroSheen {
-  from { background-position: 0% center; }
-  to { background-position: 240% center; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .original-page .hero__title { animation: none; }
 }
 
 /* Hero logo (Fashion Studio wordmark) — drop the file at public/fashion-studio-logo.svg */
@@ -102,7 +92,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  min-width: 16rem;
+  min-width: min(16rem, 100%);
   padding: 1.05rem 2.75rem;
   border-radius: 999px;
   font-size: 1.0625rem;
@@ -197,21 +187,27 @@
 /* centered button */
 .original-page .uses__btn { align-self: center; margin-top: 2.25rem; background: #fff; color: #141414; padding: 0.75rem 1.6rem; border-radius: 999px; font-size: 14px; font-weight: 500; text-decoration: none; }
 /* image centered at the bottom */
-.original-page .uses__media { margin: 2.75rem auto 0; width: min(58%, 680px); aspect-ratio: 16 / 10; border-radius: 1rem; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.3); }
+.original-page .uses__media { margin: 2.75rem auto 0; width: min(52%, 560px); aspect-ratio: 1 / 1; border-radius: 1rem; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.3); }
 .original-page .uses__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 @media (max-width: 820px) {
   .original-page .uses__head { flex-direction: column-reverse; align-items: flex-start; gap: 0.5rem; }
   .original-page .uses__media { width: 100%; }
 }
 
+/* ---- Hero: tablet & mobile — centered, stacked as logo / title / paragraph / button ---- */
+@media (max-width: 1024px) {
+  .original-page .hero__left { align-items: center; text-align: center; }
+  .original-page .hero__logo { margin-left: auto; margin-right: auto; }
+  .original-page .hero__row { flex-direction: column; align-items: center; text-align: center; gap: clamp(1.5rem, 4vw, 2rem); }
+  /* unwrap hero__head so title + button become siblings of the paragraph, then reorder */
+  .original-page .hero__head { display: contents; }
+  .original-page .hero__row .hero__title { order: 1; flex: none; width: 100%; max-width: 22ch; margin: 0 auto; }
+  .original-page .hero__intro { order: 2; flex: none; width: 100%; max-width: 56ch; margin: 0 auto; border-left: 0; padding-left: 0; }
+  .original-page .hero-cta { order: 3; margin: 0 auto; }
+}
+
 /* ---- Responsive: phones / small tablets ---- */
 @media (max-width: 820px) {
-  /* hero: full-width text (was 60%); footer stacks, CTA drops below the intro */
-  .original-page .hero__title { width: 100%; }
-  .original-page .hero__row { flex-direction: column; align-items: flex-start; gap: 1.75rem; }
-  .original-page .hero__head { width: 100%; gap: 1.5rem; }
-  .original-page .hero__row .hero__title { flex: none; width: 100%; }
-  .original-page .hero__intro { flex: none; width: 100%; max-width: none; border-left: 0; padding-left: 0; }
   /* use-case panels: stack the two chips, drop the vertical divider */
   .original-page .uses__inner { padding: 4.5rem 1.25rem 3rem; }
   .original-page .uses__info { grid-template-columns: 1fr; margin-top: 1.75rem; }
@@ -242,9 +238,9 @@
 .original-page .whyai__title { margin: 0; max-width: 20ch; font-size: clamp(28px, 3.6vw, 54px); font-weight: 500; line-height: 1.03; letter-spacing: -0.02em; color: var(--fonts-100); }
 .original-page .whyai__lead { margin: 1.25rem 0 0; max-width: 58ch; font-size: clamp(15px, 1.1vw, 18px); line-height: 1.6; color: var(--fonts-64); }
 /* trailing benefits 04 / 05 — two-up text strip, hairline-topped */
-.original-page .whyai__extra { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 4rem); margin: clamp(2rem, 3vw, 3.5rem) clamp(0.5rem, 3vw, 3rem) clamp(3rem, 5vw, 5rem); padding-top: clamp(2rem, 3vw, 3rem); border-top: 1px solid var(--lines); }
+.original-page .whyai__extra { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 4rem); margin: clamp(2rem, 3vw, 3.5rem) var(--gutter) clamp(3rem, 5vw, 5rem); padding-top: clamp(2rem, 3vw, 3rem); border-top: 1px solid var(--lines); }
 .original-page .whyai__x { display: flex; flex-direction: column; }
-.original-page .whyai__xm { aspect-ratio: 4 / 3; overflow: hidden; border-radius: 16px; margin-bottom: 1.5rem; }
+.original-page .whyai__xm { aspect-ratio: 3 / 4; overflow: hidden; border-radius: 16px; margin-bottom: 1.5rem; }
 .original-page .whyai__xm img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .original-page .whyai__xn { display: block; font-size: clamp(20px, 1.8vw, 28px); line-height: 1; letter-spacing: -0.02em; color: var(--fonts-30); margin-bottom: 0.9rem; }
 .original-page .whyai__xh { margin: 0; max-width: 22ch; font-size: clamp(19px, 1.7vw, 26px); font-weight: 500; line-height: 1.12; letter-spacing: -0.02em; color: var(--fonts-100); }
@@ -260,7 +256,7 @@
 .original-page .sgrid__head { margin: 0; max-width: 20ch; font-size: clamp(28px, 3.4vw, 50px); font-weight: 500; line-height: 1.04; letter-spacing: -0.02em; color: var(--fonts-100); }
 .original-page .sgrid__grid { max-width: var(--container); margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 2.5vw, 2.5rem); }
 .original-page .sgrid__card { display: flex; flex-direction: column; }
-.original-page .sgrid__media { aspect-ratio: 4 / 3; overflow: hidden; border-radius: 16px; }
+.original-page .sgrid__media { aspect-ratio: 1 / 1; overflow: hidden; border-radius: 16px; }
 .original-page .sgrid__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .original-page .sgrid__cbody { display: flex; flex-direction: column; align-items: flex-start; padding-top: 1.5rem; }
 .original-page .sgrid__eyebrow { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fonts-50); margin-bottom: 0.75rem; }
@@ -358,6 +354,13 @@
 
 /* Breathing room below the last section (FAQ) before the footer */
 .original-page .faq { padding-bottom: clamp(5rem, 8vw, 9rem); }
+/* FAQ intro + "Talk to us" CTA — align their left edge with the heading (were flush against the divider) */
+.original-page .faq__intro,
+.original-page .faq .cta-wrap { padding-left: 2rem; padding-right: 2rem; }
+@media (max-width: 767px) {
+  .original-page .faq__intro,
+  .original-page .faq .cta-wrap { padding-left: 1rem; padding-right: 1rem; }
+}
 
 /* Consistent slightly-rounded corners on all imagery/media */
 .original-page img,

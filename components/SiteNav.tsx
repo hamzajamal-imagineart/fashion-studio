@@ -83,7 +83,7 @@ export function SiteNav() {
           {/* Desktop actions */}
           <div className="hidden lg:flex items-center gap-1 shrink-0">
             <a
-              href="#hero"
+              href="https://www.imagine.art/fashion-studio"
               className="inline-flex items-center justify-center h-[34px] px-[16px] rounded-[22px] font-sans text-[13.5px] font-medium tracking-[0.14px] transition-all duration-200"
               style={{
                 background: "#fff",
@@ -91,7 +91,7 @@ export function SiteNav() {
                 boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
               }}
             >
-              Get Started
+              Try Now
             </a>
           </div>
 
@@ -159,13 +159,13 @@ export function SiteNav() {
 
             <div className="w-[calc(100%-48px)] h-px bg-black/[0.08] my-4" />
 
-            <div className="flex items-center justify-center gap-2.5 px-6">
+            <div className="w-full px-6">
               <a
-                href="#hero"
+                href="https://www.imagine.art/fashion-studio"
                 onClick={() => setMenuOpen(false)}
-                className="bg-content-primary inline-flex items-center justify-center h-11 px-6 rounded-[14px] font-sans text-[14px] font-medium text-white"
+                className="bg-content-primary flex items-center justify-center w-full h-12 rounded-[14px] font-sans text-[15px] font-medium text-white"
               >
-                Get Started
+                Try Now
               </a>
             </div>
           </div>
