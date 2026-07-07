@@ -101,10 +101,11 @@ export function SiteFooter() {
             </div>
           </div>
 
-          {/* Link columns */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 flex-1 min-w-0">
+          {/* Link columns — multi-column balances heights so the columns line up
+              evenly instead of the grid's ragged 2-row wrap on tablet widths */}
+          <div className="columns-2 sm:columns-3 lg:columns-6 gap-8 flex-1 min-w-0">
             {COLUMNS.map((col) => (
-              <div key={col.heading}>
+              <div key={col.heading} className="break-inside-avoid mb-8 last:mb-0">
                 <span className="block text-[11px] font-semibold tracking-[0.5px] text-white/[0.38] mb-5">
                   {col.heading}
                 </span>

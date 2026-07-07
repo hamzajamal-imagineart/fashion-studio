@@ -234,6 +234,11 @@
 
 /* ---- Why Fashion Studio living inside the .ai galleries ---- */
 .original-page .whyai__intro { padding: clamp(4rem, 6vw, 6.5rem) var(--gutter) clamp(2rem, 3vw, 3rem); }
+/* "Model Consistency" video — 20% narrower than its original full-flex width
+   (free space = 100% minus the 17.5rem card, 1.5rem arrow, and two 3.5rem gaps) */
+@media (min-width: 900px) {
+  .original-page .ai__grid-screen { flex: 0 1 auto; width: calc((100% - 26rem) * 0.8); }
+}
 .original-page .whyai__eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fonts-50); margin-bottom: 1.1rem; }
 .original-page .whyai__title { margin: 0; max-width: 20ch; font-size: clamp(28px, 3.6vw, 54px); font-weight: 500; line-height: 1.03; letter-spacing: -0.02em; color: var(--fonts-100); }
 .original-page .whyai__lead { margin: 1.25rem 0 0; max-width: 58ch; font-size: clamp(15px, 1.1vw, 18px); line-height: 1.6; color: var(--fonts-64); }
@@ -256,7 +261,8 @@
 .original-page .sgrid__head { margin: 0; max-width: 20ch; font-size: clamp(28px, 3.4vw, 50px); font-weight: 500; line-height: 1.04; letter-spacing: -0.02em; color: var(--fonts-100); }
 .original-page .sgrid__grid { max-width: var(--container); margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 2.5vw, 2.5rem); }
 .original-page .sgrid__card { display: flex; flex-direction: column; }
-.original-page .sgrid__media { aspect-ratio: 1 / 1; overflow: hidden; border-radius: 16px; }
+.original-page .sgrid__media { aspect-ratio: 1 / 1; overflow: hidden; border-radius: 16px; background: #0a0a0b; }
+.original-page .sgrid__media video, .original-page .sgrid__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .original-page .sgrid__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .original-page .sgrid__cbody { display: flex; flex-direction: column; align-items: flex-start; padding-top: 1.5rem; }
 .original-page .sgrid__eyebrow { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fonts-50); margin-bottom: 0.75rem; }
@@ -269,6 +275,21 @@
 
 /* ---- Interactive Demo — contained split (content left, preview right) ---- */
 .original-page .demo-sec { border-top: 1px solid var(--lines); padding: clamp(4rem, 6vw, 6.5rem) clamp(1.5rem, 4vw, 4rem); }
+/* Desktop: pin the demo and let scroll drive the steps 1→6 (scrollytelling). */
+@media (min-width: 900px) {
+  .original-page .demo-track { position: relative; height: 600vh; }
+  .original-page .demo-track .demo-sec {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 0 clamp(1.5rem, 4vw, 4rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .original-page .demo-track .demo-split { width: 100%; }
+}
 .original-page .demo-split { max-width: var(--container); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(2rem, 4vw, 4.5rem); }
 .original-page .demo-content { display: flex; flex-direction: column; }
 .original-page .demo-eyebrow { letter-spacing: 0.12em; margin-bottom: 1.25rem; }
@@ -276,8 +297,8 @@
 .original-page .demo-intro { max-width: 52ch; margin: 1.25rem 0 0; }
 .original-page .demo-steps-head { display: flex; justify-content: space-between; align-items: baseline; margin: clamp(2rem, 3vw, 2.75rem) 0 1.25rem; }
 /* media matches the content column's height */
-.original-page .demo-media { position: relative; aspect-ratio: 2 / 3; width: min(100%, 24rem); margin: 0 auto; }
-.original-page .demo-imgwrap { position: absolute; inset: 0; overflow: hidden; border-radius: 16px !important; }
+.original-page .demo-media { position: relative; aspect-ratio: 2 / 3; width: min(100%, 34rem); margin: 0 auto; }
+.original-page .demo-imgwrap { position: absolute; inset: 0; overflow: hidden; border-radius: 16px !important; transition: opacity 0.32s ease; }
 .original-page .demo-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .original-page .demo-overlay { position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: flex-end; gap: 1rem; padding: clamp(1.5rem, 3vw, 2.75rem); color: #fff; background: linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0) 72%); }
 .original-page .demo-overlay .demo-num { flex: none; padding: 0.3rem 0.7rem; border-radius: 0.5rem; background: rgba(255,255,255,0.18); font-size: 0.85rem; font-weight: 500; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
@@ -347,6 +368,16 @@
   max-width: 60ch;
   margin-top: 1.1rem;
 }
+/* Motion list terms (Camera Movement / Timing / Aspect Ratio) — u-h2 was up to
+   120px and clipped; bring it to a readable list size */
+.original-page .how__right-title {
+  font-size: clamp(30px, 3.8vw, 56px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+/* the list column had a fixed height + overflow:hidden (a scroll window that
+   clipped the terms) — let it size to its content instead */
+.original-page .how__right { height: auto; overflow: visible; }
 
 /* Testimonial quotes are <blockquote>s — kill the original's default left rule/padding */
 .original-page .tcard blockquote { border-left: 0; padding: 0; }

@@ -3,6 +3,7 @@ import path from "node:path";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import ScrollReveal from "@/components/ScrollReveal";
+import DemoScroll from "@/components/DemoScroll";
 import "./original.css";
 import "./original-overrides.css";
 import "./tuning.css";
@@ -28,6 +29,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: originalBody }}
       />
       <ScrollReveal />
+      <DemoScroll />
       <SiteFooter />
     </>
   );

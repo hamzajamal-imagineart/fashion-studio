@@ -7,6 +7,7 @@ import Link from "next/link";
 const NAV_LINKS = [
   { label: "What You Can Do", href: "#features" },
   { label: "How It Works",    href: "#how-it-works" },
+  { label: "Pricing",         href: "https://www.imagine.art/subscription" },
   { label: "FAQs",            href: "#faq" },
 ];
 
