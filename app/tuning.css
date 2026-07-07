@@ -168,7 +168,7 @@
 /* Each sticky panel must fit in one viewport height, or overflow:hidden clips
    the image at the bottom. So the vertical rhythm + type + image are all sized
    against viewport HEIGHT (vh), and the content is vertically centered. */
-.original-page .uses__inner { width: 100%; max-width: none; padding: clamp(2rem, 5vh, 3.5rem) clamp(1.5rem, 3.5vw, 4rem); display: flex; flex-direction: column; justify-content: center; }
+.original-page .uses__inner { width: 100%; max-width: none; padding: clamp(1.25rem, 3vh, 2.25rem) clamp(1.5rem, 3.5vw, 4rem); display: flex; flex-direction: column; justify-content: center; }
 /* (EC) code — centered at top — original .list__main__tag u-title-3 (24px) */
 .original-page .uses__code { text-align: center; font-size: clamp(15px, 1.25vw, 22px); line-height: 1.5; font-weight: 500; letter-spacing: -0.01em; opacity: 0.6; }
 /* title left, big number right */
@@ -178,8 +178,8 @@
 /* big number — reduced from 184px so the panel fits one screen */
 .original-page .uses__num { flex: none; font-size: clamp(44px, min(7.2vw, 11vh), 128px); font-weight: 400; line-height: 1; letter-spacing: -0.03em; }
 /* info row: horizontal line on top, vertical divider between the two chips */
-.original-page .uses__info { display: grid; grid-template-columns: 1fr 1fr; margin-top: clamp(1.25rem, 2.5vh, 2.5rem); border-top: 1px solid rgba(255,255,255,0.28); }
-.original-page .uses__info-col { padding: clamp(1rem, 2vh, 1.75rem) 0; }
+.original-page .uses__info { display: grid; grid-template-columns: 1fr 1fr; margin-top: clamp(1rem, 2vh, 1.75rem); border-top: 1px solid rgba(255,255,255,0.28); }
+.original-page .uses__info-col { padding: clamp(0.75rem, 1.5vh, 1.25rem) 0; }
 .original-page .uses__info-col:first-child { padding-right: 2.5rem; border-right: 1px solid rgba(255,255,255,0.28); }
 .original-page .uses__info-col:last-child { padding-left: 2.5rem; }
 /* original .list__main__info-tag-text u-title-2 (14px) */
@@ -188,9 +188,10 @@
 /* original .list__main__info-copy u-title-3 (24px) — scaled up */
 .original-page .uses__desc { margin-top: clamp(0.75rem, 1.5vh, 1.25rem); max-width: 42ch; font-size: clamp(15px, 1.2vw, 21px); font-weight: 500; line-height: 1.45; letter-spacing: -0.01em; opacity: 0.9; }
 /* centered button */
-.original-page .uses__btn { align-self: center; margin-top: clamp(1.25rem, 2.5vh, 2.25rem); background: #fff; color: #141414; padding: 0.75rem 1.6rem; border-radius: 999px; font-size: 14px; font-weight: 500; text-decoration: none; }
-/* image centered at the bottom — sized by viewport HEIGHT so it never overflows */
-.original-page .uses__media { margin: clamp(1.25rem, 2.5vh, 2.75rem) auto 0; width: auto; height: min(40vh, 440px); aspect-ratio: 1 / 1; border-radius: 1rem; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.3); }
+.original-page .uses__btn { align-self: center; margin-top: clamp(1rem, 2vh, 1.75rem); background: #fff; color: #141414; padding: 0.75rem 1.6rem; border-radius: 999px; font-size: 14px; font-weight: 500; text-decoration: none; }
+/* image centered at the bottom — sized by viewport HEIGHT so it never overflows;
+   tighter spacing above lets the image run larger */
+.original-page .uses__media { margin: clamp(1rem, 2vh, 2rem) auto 0; width: auto; height: min(48vh, 520px); aspect-ratio: 1 / 1; border-radius: 1rem; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.3); }
 .original-page .uses__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 @media (max-width: 820px) {
   .original-page .uses__head { flex-direction: column-reverse; align-items: flex-start; gap: 0.5rem; }
@@ -411,10 +412,11 @@
   padding-right: var(--gutter);
   padding-bottom: 3rem;
 }
-/* keep the "When the Frame Starts Moving" title on one line on desktop (its
-   natural width sits right at the column edge; the column has room to spare) */
+/* let the "When the Frame Starts Moving" title wrap to two lines so it never
+   runs into the vertical divider; extra right padding keeps a clear gap */
 @media (min-width: 900px) {
-  .original-page .how__left-title { white-space: nowrap; }
+  .original-page .how__left { padding-right: 3rem; }
+  .original-page .how__left-title { max-width: 22ch; }
 }
 .original-page .how__title-txt {
   font-size: 11px;
@@ -438,6 +440,13 @@
 /* the list column had a fixed height + overflow:hidden (a scroll window that
    clipped the terms) — let it size to its content instead */
 .original-page .how__right { height: auto; overflow: visible; }
+
+/* ---- The Ecosystem — merged into one centered block (was a two-column layout
+   with a decorative "Beyond the Shoot" heading, now removed) ---- */
+.original-page .what { display: block; border-top: 1px solid var(--lines); padding: clamp(4rem, 7vw, 7rem) var(--gutter); }
+.original-page .what__inner { max-width: 56rem; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.original-page .what__lead { margin: 1.5rem 0 0; max-width: 42ch; font-size: clamp(21px, 2.3vw, 34px); font-weight: 500; line-height: 1.28; letter-spacing: -0.02em; color: var(--fonts-100); }
+.original-page .what .cta-wrap { display: flex; justify-content: center; }
 
 /* Testimonial quotes are <blockquote>s — kill the original's default left rule/padding */
 .original-page .tcard blockquote { border-left: 0; padding: 0; }
