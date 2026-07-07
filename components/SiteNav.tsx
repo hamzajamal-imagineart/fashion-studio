@@ -92,7 +92,7 @@ export function SiteNav() {
                 boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
               }}
             >
-              Try Now
+              Get Started
             </a>
           </div>
 
@@ -166,7 +166,7 @@ export function SiteNav() {
                 onClick={() => setMenuOpen(false)}
                 className="bg-content-primary flex items-center justify-center w-full h-12 rounded-[14px] font-sans text-[15px] font-medium text-white"
               >
-                Try Now
+                Get Started
               </a>
             </div>
           </div>
