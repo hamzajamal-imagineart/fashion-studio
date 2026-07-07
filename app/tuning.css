@@ -33,10 +33,7 @@
   line-height: 1.05;
   letter-spacing: -0.025em;
   font-weight: 500;
-  background-image: linear-gradient(to bottom, #8f8f96 0%, #d7d7db 34%, #ffffff 72%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #fff;
 }
 
 /* Hero logo (Fashion Studio wordmark) — drop the file at public/fashion-studio-logo.svg */
