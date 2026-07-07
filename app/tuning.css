@@ -341,26 +341,20 @@
 .original-page .demo-title { font-weight: 500; font-size: clamp(19px, 1.6vw, 26px); letter-spacing: -0.01em; line-height: 1.15; }
 .original-page .demo-desc { margin: 0.4rem 0 0; max-width: 42ch; font-size: clamp(14px, 1vw, 16px); line-height: 1.5; color: rgba(255,255,255,0.82); }
 @media (max-width: 900px) {
-  /* tablet/mobile: preview on top, steps as a horizontal-scroll row of small chips below */
+  /* tablet/mobile: preview on top, then a vertical, easily-tappable step list
+     (horizontal chip-scroll felt cramped and awkward to use) */
   .original-page .demo-split { display: flex; flex-direction: column; gap: 1.25rem; }
   .original-page .demo-content { display: contents; }
   .original-page .demo-eyebrow { order: 1; }
   .original-page .demo-h2 { order: 2; }
   .original-page .demo-intro { order: 3; }
-  .original-page .demo-media { order: 4; width: min(100%, 22rem); }
+  .original-page .demo-media { order: 4; width: min(100%, 24rem); }
   .original-page .demo-steps-head { order: 5; margin: 0.25rem 0 0; }
-  .original-page .demo-steps { order: 6; display: flex; gap: 0.6rem; overflow-x: auto; padding-bottom: 0.4rem; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+  .original-page .demo-steps { order: 6; display: flex; flex-direction: column; gap: 0.6rem; }
   .original-page .demo-content .cta-wrap { order: 7; margin-top: 0.5rem !important; }
   .original-page .demo-imgwrap { border-radius: 16px !important; }
-  /* smaller chips */
-  .original-page .demo-steps .demo-step { flex: 0 0 auto; width: auto; margin-bottom: 0; padding: 0.6rem 0.85rem; scroll-snap-align: start; }
-  /* chips stay compact: title only, no per-step paragraph, centered */
-  .original-page .demo-steps .demo-step { align-items: center; }
-  .original-page .demo-steps .demo-step-body { flex-direction: row; }
-  .original-page .demo-steps .demo-step-title { font-size: 0.85rem !important; white-space: nowrap; }
-  .original-page .demo-steps .demo-step-desc { display: none; }
-  .original-page .demo-steps .demo-badge { width: 1.5rem; height: 1.5rem; font-size: 0.7rem; }
-  .original-page .demo-steps .demo-check { display: none; }
+  /* full-width rows, comfortable tap target */
+  .original-page .demo-steps .demo-step { width: 100%; margin-bottom: 0; padding: 1rem 1.15rem; }
 }
 
 /* Section CTAs (SEO) — primary / secondary / sleek link-with-arrow */

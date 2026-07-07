@@ -53,7 +53,7 @@ export function SiteNav() {
           }}
         >
           {/* Logo */}
-          <Link href="https://www.imagine.art/" className="inline-flex items-center shrink-0 no-underline">
+          <Link href="https://www.imagine.art/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center shrink-0 no-underline">
             <img
               src="/imagine-art-wordmark.svg"
               alt="ImagineArt"
@@ -85,6 +85,8 @@ export function SiteNav() {
           <div className="hidden lg:flex items-center gap-1 shrink-0">
             <a
               href="https://www.imagine.art/fashion-studio"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center h-[34px] px-[16px] rounded-[22px] font-sans text-[13.5px] font-medium tracking-[0.14px] transition-all duration-200"
               style={{
                 background: "#fff",
@@ -121,7 +123,7 @@ export function SiteNav() {
       {menuOpen && (
         <div className="fixed inset-0 z-[101] bg-white flex flex-col" style={{ animation: "mobileMenuIn 0.22s cubic-bezier(0.4,0,0.2,1) forwards" }}>
           <div className="flex items-center justify-between px-6 py-[18px] shrink-0">
-            <Link href="https://www.imagine.art/" className="inline-flex items-center">
+            <Link href="https://www.imagine.art/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center">
               <img
                 src="/imagine-art-wordmark.svg"
                 alt="ImagineArt"
@@ -163,6 +165,8 @@ export function SiteNav() {
             <div className="w-full px-6">
               <a
                 href="https://www.imagine.art/fashion-studio"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
                 className="bg-content-primary flex items-center justify-center w-full h-12 rounded-[14px] font-sans text-[15px] font-medium text-white"
               >
