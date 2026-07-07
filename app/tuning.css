@@ -29,7 +29,7 @@
 /* Hero heading — width + fluid size + static white gradient (dark top -> white bottom) */
 .original-page .hero__title {
   width: 60%;
-  font-size: clamp(40px, 5.4vw, 72px);
+  font-size: clamp(36px, 4.8vw, 64px);
   line-height: 1.05;
   letter-spacing: -0.025em;
   font-weight: 500;
@@ -68,7 +68,7 @@
   flex: none;
   margin: 0;
   /* keep the hero's own tuned scale (beats the generic .u-h1 fluid rule) */
-  font-size: clamp(40px, 5.4vw, 72px);
+  font-size: clamp(36px, 4.8vw, 64px);
 }
 
 /* Hero intro paragraph — right side of the row, with a thin divider rule on its left */
@@ -287,6 +287,7 @@
 .original-page .sgrid__intro { max-width: var(--container); margin: 0 auto clamp(2.5rem, 4vw, 3.5rem); }
 .original-page .sgrid__kicker { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fonts-50); margin-bottom: 1rem; }
 .original-page .sgrid__head { margin: 0; max-width: 20ch; font-size: clamp(28px, 3.4vw, 50px); font-weight: 500; line-height: 1.04; letter-spacing: -0.02em; color: var(--fonts-100); }
+.original-page .sgrid__lead { margin: 1.5rem 0 0; max-width: 62ch; font-size: clamp(16px, 1.2vw, 19px); line-height: 1.6; color: var(--fonts-64); }
 .original-page .sgrid__grid { max-width: var(--container); margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 2.5vw, 2.5rem); }
 .original-page .sgrid__card { display: flex; flex-direction: column; }
 .original-page .sgrid__media { aspect-ratio: 1 / 1; overflow: hidden; border-radius: 16px; background: #0a0a0b; }
@@ -303,12 +304,12 @@
 
 /* ---- Interactive Demo — contained split (content left, preview right) ---- */
 .original-page .demo-sec { border-top: 1px solid var(--lines); padding: clamp(4rem, 6vw, 6.5rem) clamp(1.5rem, 4vw, 4rem); }
-.original-page .demo-split { max-width: 74rem; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(1.25rem, 2vw, 2.5rem);
-  /* subtle gray panel holding the preview + step list */
-  padding: clamp(1.25rem, 2vw, 2.25rem);
-  background: linear-gradient(135deg, #eef1f5 0%, #f7f9fb 50%, #edf3f2 100%);
-  border-radius: clamp(20px, 2vw, 32px);
-  box-shadow: 0 24px 70px rgba(20, 30, 50, 0.07);
+.original-page .demo-split { max-width: 74rem; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(1.5rem, 2.4vw, 3rem);
+  /* soft frosted panel holding the preview + step list */
+  padding: clamp(1.5rem, 2.4vw, 2.75rem);
+  background: linear-gradient(155deg, #f4f6fa 0%, #edf0f5 100%);
+  border-radius: clamp(24px, 2.4vw, 34px);
+  box-shadow: 0 30px 80px rgba(20, 30, 50, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 /* heading block now lives ABOVE the panel, aligned to its width */
 .original-page .demo-head { max-width: 74rem; margin: 0 auto clamp(1.75rem, 3vw, 2.75rem); }
@@ -316,8 +317,9 @@
 .original-page .demo-eyebrow { letter-spacing: 0.12em; margin-bottom: 1.25rem; }
 .original-page .demo-h2 { margin: 0; max-width: 24ch; }
 .original-page .demo-intro { max-width: 60ch; margin: 1.25rem 0 0; }
-/* steps-head is now the first item in the left column — no big top gap */
-.original-page .demo-steps-head { display: flex; justify-content: space-between; align-items: baseline; margin: 0 0 1.25rem; }
+/* steps-head is now the first item in the left column — small muted eyebrow */
+.original-page .demo-steps-head { display: flex; justify-content: space-between; align-items: baseline; margin: 0 0 1.5rem; }
+.original-page .demo-steps-head > span:first-child { font-size: 0.7rem !important; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600 !important; color: var(--fonts-50) !important; }
 /* media matches the content column's height */
 .original-page .demo-media { position: relative; aspect-ratio: 2 / 3; width: min(100%, 20rem); margin: 0 auto; }
 /* desktop: let the preview fill its column so its height matches the step list */
@@ -325,14 +327,48 @@
   .original-page .demo-split { align-items: stretch; }
   .original-page .demo-media { width: 100%; aspect-ratio: auto; margin: 0; }
 }
-/* roomier step rows */
-.original-page .demo-step { padding: 1.15rem 1.35rem; margin-bottom: 0.6rem; align-items: flex-start; }
-/* each step now carries its own description paragraph beneath the title */
-.original-page .demo-step .demo-badge { margin-top: 0.1rem; }
-.original-page .demo-step-body { display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; }
-.original-page .demo-step-desc { font-size: 0.9rem; font-weight: 400; line-height: 1.45; color: var(--fonts-64); }
-.original-page .demo-step[data-active] .demo-step-desc { color: var(--fonts-64); }
-.original-page .demo-step .demo-check { margin-top: 0.15rem; }
+/* Spacious, minimal step list: quiet borderless rows; only the active row
+   lifts into a frosted liquid-glass card. */
+.original-page .demo-steps { display: flex; flex-direction: column; gap: 0.25rem; }
+.original-page .demo-step {
+  align-items: flex-start;
+  gap: 1.05rem;
+  padding: 1.15rem 1.3rem;
+  margin-bottom: 0;
+  border-radius: 18px;
+  border: 1px solid transparent;
+  background: transparent;
+  box-shadow: none;
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.original-page .demo-step:hover { background: rgba(255, 255, 255, 0.42); border-color: transparent; }
+.original-page .demo-step[data-active] {
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  backdrop-filter: blur(22px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 16px 42px rgba(30, 40, 60, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+/* minimal circular badge — hairline outline when idle, frosted when active */
+.original-page .demo-step .demo-badge {
+  width: 2.1rem; height: 2.1rem; margin-top: 0.05rem;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid rgba(2, 1, 8, 0.14);
+  color: var(--fonts-50);
+  font-size: 0.72rem; font-weight: 500;
+  box-shadow: none;
+}
+.original-page .demo-step[data-active] .demo-badge {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(255, 255, 255, 0.9);
+  color: var(--fonts-100);
+  box-shadow: 0 2px 10px rgba(30, 40, 60, 0.08);
+}
+.original-page .demo-step-body { display: flex; flex-direction: column; gap: 0.3rem; min-width: 0; }
+.original-page .demo-step-title { font-weight: 500; letter-spacing: -0.01em; }
+.original-page .demo-step-desc { font-size: 0.875rem; font-weight: 400; line-height: 1.5; color: var(--fonts-50); }
+.original-page .demo-step .demo-check { margin-top: 0.2rem; color: var(--fonts-50); }
 .original-page .demo-imgwrap { position: absolute; inset: 0; overflow: hidden; border-radius: 16px !important; }
 .original-page .demo-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 /* preview overlay text duplicated the step title — hide it entirely (JS still updates the hidden nodes) */
@@ -435,12 +471,6 @@
    clipped the terms) — let it size to its content instead */
 .original-page .how__right { height: auto; overflow: visible; }
 
-/* ---- The Ecosystem — merged into one centered block (was a two-column layout
-   with a decorative "Beyond the Shoot" heading, now removed) ---- */
-.original-page .what { display: block; border-top: 1px solid var(--lines); padding: clamp(4rem, 7vw, 7rem) var(--gutter); }
-.original-page .what__inner { max-width: 56rem; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center; }
-.original-page .what__lead { margin: 1.5rem 0 0; max-width: 42ch; font-size: clamp(21px, 2.3vw, 34px); font-weight: 500; line-height: 1.28; letter-spacing: -0.02em; color: var(--fonts-100); }
-.original-page .what .cta-wrap { display: flex; justify-content: center; }
 
 /* Testimonial quotes are <blockquote>s — kill the original's default left rule/padding */
 .original-page .tcard blockquote { border-left: 0; padding: 0; }

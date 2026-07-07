@@ -104,10 +104,10 @@ export function SiteFooter() {
           {/* Link columns — grid so every heading is its own top-aligned column.
               (CSS multi-column packed short groups like Apps + Contact Us into
               one visual column, which read as misaligned.) */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-10 flex-1 min-w-0 items-start">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-[repeat(6,max-content)] lg:justify-between gap-x-6 gap-y-10 flex-1 min-w-0 items-start">
             {COLUMNS.map((col) => (
               <div key={col.heading}>
-                <span className="block text-[11px] font-semibold tracking-[0.5px] text-white/[0.38] mb-5">
+                <span className="block whitespace-nowrap text-[11px] font-semibold tracking-[0.5px] text-white/[0.38] mb-4">
                   {col.heading}
                 </span>
                 <ul className="flex flex-col gap-3 list-none m-0 p-0">
@@ -117,7 +117,7 @@ export function SiteFooter() {
                         href={l.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[13px] leading-[1.4] text-white/55 hover:text-white/90 transition-colors no-underline"
+                        className="whitespace-nowrap text-[13px] leading-[1.4] text-white/55 hover:text-white/90 transition-colors no-underline"
                       >
                         {l.label}
                       </a>
