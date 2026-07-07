@@ -234,10 +234,13 @@
 
 /* ---- Why Fashion Studio living inside the .ai galleries ---- */
 .original-page .whyai__intro { padding: clamp(4rem, 6vw, 6.5rem) var(--gutter) clamp(2rem, 3vw, 3rem); }
-/* "Model Consistency" video — 20% narrower than its original full-flex width
-   (free space = 100% minus the 17.5rem card, 1.5rem arrow, and two 3.5rem gaps) */
+/* "Model Consistency" row — rebalanced: image card ~30% of the width, video ~65%
+   (tight gaps + the 1.5rem arrow make up the remaining ~5%). Text block widened. */
 @media (min-width: 900px) {
-  .original-page .ai__grid-screen { flex: 0 1 auto; width: calc((100% - 26rem) * 0.8); }
+  .original-page .ai__grid { grid-column-gap: 1.25rem; column-gap: 1.25rem; }
+  .original-page .ai__grid-card { width: 30%; flex: none; }
+  .original-page .ai__grid-screen { flex: none; width: 65%; }
+  .original-page .ai__title { width: min(48rem, 60%); }
 }
 .original-page .whyai__eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fonts-50); margin-bottom: 1.1rem; }
 .original-page .whyai__title { margin: 0; max-width: 20ch; font-size: clamp(28px, 3.6vw, 54px); font-weight: 500; line-height: 1.03; letter-spacing: -0.02em; color: var(--fonts-100); }
@@ -275,24 +278,9 @@
 
 /* ---- Interactive Demo — contained split (content left, preview right) ---- */
 .original-page .demo-sec { border-top: 1px solid var(--lines); padding: clamp(4rem, 6vw, 6.5rem) clamp(1.5rem, 4vw, 4rem); }
-/* Desktop: pin the demo and let scroll drive the steps 1→6 (scrollytelling). */
-@media (min-width: 900px) {
-  .original-page .demo-track { position: relative; height: 340vh; }
-  .original-page .demo-track .demo-sec {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    padding: 0 clamp(1.5rem, 4vw, 4rem);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  .original-page .demo-track .demo-split { width: 100%; }
-}
-.original-page .demo-split { max-width: 98rem; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(2.5rem, 4vw, 5rem);
+.original-page .demo-split { max-width: 74rem; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(1.25rem, 2vw, 2.5rem);
   /* subtle gray panel holding the preview + step list */
-  padding: clamp(2.25rem, 3.5vw, 4rem);
+  padding: clamp(1.25rem, 2vw, 2.25rem);
   background: linear-gradient(135deg, #eef1f5 0%, #f7f9fb 50%, #edf3f2 100%);
   border-radius: clamp(20px, 2vw, 32px);
   box-shadow: 0 24px 70px rgba(20, 30, 50, 0.07);
@@ -303,12 +291,13 @@
 .original-page .demo-intro { max-width: 52ch; margin: 1.25rem 0 0; }
 .original-page .demo-steps-head { display: flex; justify-content: space-between; align-items: baseline; margin: clamp(2rem, 3vw, 2.75rem) 0 1.25rem; }
 /* media matches the content column's height */
-.original-page .demo-media { position: relative; aspect-ratio: 2 / 3; width: min(100%, 32rem); margin: 0 auto; }
+.original-page .demo-media { position: relative; aspect-ratio: 2 / 3; width: min(100%, 20rem); margin: 0 auto; }
+/* slightly smaller step rows so the panel isn't oversized */
+.original-page .demo-step { padding: 0.8rem 1rem; margin-bottom: 0.5rem; }
 .original-page .demo-imgwrap { position: absolute; inset: 0; overflow: hidden; border-radius: 16px !important; }
-/* preview overlay text duplicated the step title — hide it (JS still updates the hidden nodes) */
-.original-page .demo-overlay { display: none; }
 .original-page .demo-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.original-page .demo-overlay { position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: flex-end; gap: 1rem; padding: clamp(1.5rem, 3vw, 2.75rem); color: #fff; background: linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0) 72%); }
+/* preview overlay text duplicated the step title — hide it entirely (JS still updates the hidden nodes) */
+.original-page .demo-overlay { display: none !important; }
 .original-page .demo-overlay .demo-num { flex: none; padding: 0.3rem 0.7rem; border-radius: 0.5rem; background: rgba(255,255,255,0.18); font-size: 0.85rem; font-weight: 500; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 .original-page .demo-title { font-weight: 500; font-size: clamp(19px, 1.6vw, 26px); letter-spacing: -0.01em; line-height: 1.15; }
 .original-page .demo-desc { margin: 0.4rem 0 0; max-width: 42ch; font-size: clamp(14px, 1vw, 16px); line-height: 1.5; color: rgba(255,255,255,0.82); }
