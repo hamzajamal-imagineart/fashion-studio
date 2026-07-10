@@ -81,7 +81,7 @@ export function SiteFooter() {
                 Try Imagine Mobile
               </span>
               <a
-                href="https://app.adjust.com/1a1xymg6"
+                href="https://apps.apple.com/us/app/imagineart-ai-video-generator/id1664121419"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-[7px] px-3 py-[7px] rounded-[9px] border border-white/10 text-white/60 text-[11.5px] font-semibold hover:border-white/[0.28] hover:text-white transition-colors"
@@ -90,7 +90,7 @@ export function SiteFooter() {
                 App Store
               </a>
               <a
-                href="https://app.adjust.com/1rx90a0u"
+                href="https://play.google.com/store/apps/details?id=com.vyroai.aiart&hl=en"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-[7px] px-3 py-[7px] rounded-[9px] border border-white/10 text-white/60 text-[11.5px] font-semibold hover:border-white/[0.28] hover:text-white transition-colors"
